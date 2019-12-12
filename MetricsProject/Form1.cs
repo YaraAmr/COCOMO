@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MetricsProject
 {
-   
+
 
     public partial class Form1 : MetroForm
     {
@@ -22,7 +22,7 @@ namespace MetricsProject
         {
             InitializeComponent();
             FillComboBox();
-            
+
         }
 
         private void FillComboBox()
@@ -54,6 +54,7 @@ namespace MetricsProject
 
             //everythingReady = true;
         }
+
         public double Effort(int Size_of_project)
         {
             double a, b, Effort;
@@ -167,7 +168,7 @@ namespace MetricsProject
 
         public double ActualEffort(double EAF, double Effort)
         {
-            return 0;
+            return EAF * Effort;
         }
 
         public void CalculateEffort_Click(object sender, EventArgs e)
@@ -180,9 +181,6 @@ namespace MetricsProject
 
         }
 
-
-
-
         private void CalculateTDEV_Click(object sender, EventArgs e)
         {
             //double actualEffort = ActualEffort();
@@ -192,9 +190,98 @@ namespace MetricsProject
 
         private void CalculateActualEffort_Click(object sender, EventArgs e)
         {
+            double data = 1;
+
+            foreach (DataGridViewRow row in metroGrid1.Rows)
+                data *= double.Parse(row.Cells[1].Value.ToString());
+
             double effort = Effort(int.Parse(Size.Text));
-            //ActualEffort(effort, double Effort);
+           
+            EAFvalue.Text = data.ToString();
+            EAFvalue.Visible = true;
+
+            ResultActualEffort.Text = ActualEffort(data,effort).ToString();
         }
+
+        private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //MessageBox.Show(metroComboBox1.Text.ToString());
+            string selectedValue = metroComboBox1.Text.ToString();
+
+            VeryLowRadioButton.Text = EAFValues[selectedValue].VeryLow.ToString();
+            LowRadioButton.Text = EAFValues[selectedValue].Low.ToString();
+            NominalRadioButton.Text = EAFValues[selectedValue].Nominal.ToString();
+            HighRadioButton.Text = EAFValues[selectedValue].High.ToString();
+            VeryHighRadioButton.Text = EAFValues[selectedValue].VeryHigh.ToString();
+            ExtraHighRadioButton.Text = EAFValues[selectedValue].ExtraHigh.ToString();
+
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+
+            if (VeryLowRadioButton.Checked == true)
+            {
+                metroGrid1.Rows.Add(metroComboBox1.Text.ToString(), VeryLowRadioButton.Text);
+                VeryLowRadioButton.Checked = false;
+
+                EAFValues.Remove(metroComboBox1.Text);
+                BindingSource bindingSource = new BindingSource(EAFValues, null);
+                metroComboBox1.DataSource = bindingSource;
+            }
+
+            else if (LowRadioButton.Checked == true)
+            {
+                metroGrid1.Rows.Add(metroComboBox1.Text.ToString(), LowRadioButton.Text);
+                LowRadioButton.Checked = false;
+
+                EAFValues.Remove(metroComboBox1.Text);
+                BindingSource bindingSource = new BindingSource(EAFValues, null);
+                metroComboBox1.DataSource = bindingSource;
+            }
+
+            else if (NominalRadioButton.Checked == true)
+            {
+                metroGrid1.Rows.Add(metroComboBox1.Text.ToString(), NominalRadioButton.Text);
+                NominalRadioButton.Checked = false;
+
+                EAFValues.Remove(metroComboBox1.Text);
+                BindingSource bindingSource = new BindingSource(EAFValues, null);
+                metroComboBox1.DataSource = bindingSource;
+            }
+
+            else if (HighRadioButton.Checked == true)
+            {
+                metroGrid1.Rows.Add(metroComboBox1.Text.ToString(), HighRadioButton.Text);
+                HighRadioButton.Checked = false;
+
+                EAFValues.Remove(metroComboBox1.Text);
+                BindingSource bindingSource = new BindingSource(EAFValues, null);
+                metroComboBox1.DataSource = bindingSource;
+            }
+
+            else if (VeryHighRadioButton.Checked == true)
+            {
+                metroGrid1.Rows.Add(metroComboBox1.Text.ToString(), VeryHighRadioButton.Text);
+                VeryHighRadioButton.Checked = false;
+
+                EAFValues.Remove(metroComboBox1.Text);
+                BindingSource bindingSource = new BindingSource(EAFValues, null);
+                metroComboBox1.DataSource = bindingSource;
+            }
+
+            else if (ExtraHighRadioButton.Checked == true)
+            {
+                metroGrid1.Rows.Add(metroComboBox1.Text.ToString(), ExtraHighRadioButton.Text);
+                ExtraHighRadioButton.Checked = false;
+
+                EAFValues.Remove(metroComboBox1.Text);
+                BindingSource bindingSource = new BindingSource(EAFValues, null);
+                metroComboBox1.DataSource = bindingSource;
+            }
+
+        }
+  
     }
 
     public class Ratings
