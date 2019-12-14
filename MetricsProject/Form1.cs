@@ -55,6 +55,10 @@ namespace MetricsProject
             //everythingReady = true;
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
         public double Effort(int Size_of_project)
         {
             double a, b, Effort;
@@ -147,7 +151,7 @@ namespace MetricsProject
                 }
             }
 
-            else if (Size_of_project < 300)
+            else if (Size_of_project > 300)
             {
                 if (comboBox1.SelectedIndex == 0)
                 {
@@ -176,18 +180,6 @@ namespace MetricsProject
             ResultEffort.Text = Effort(int.Parse(Size.Text)).ToString();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void CalculateTDEV_Click(object sender, EventArgs e)
-        {
-            //double actualEffort = ActualEffort();
-            // TDEV(int.Parse(Size.Text), actualEffort);
-
-        }
-
         private void CalculateActualEffort_Click(object sender, EventArgs e)
         {
             double data = 1;
@@ -201,6 +193,13 @@ namespace MetricsProject
             EAFvalue.Visible = true;
 
             ResultActualEffort.Text = ActualEffort(data,effort).ToString();
+        }
+
+        private void CalculateTDEV_Click(object sender, EventArgs e)
+        {
+            double actualEffort = double.Parse(ResultActualEffort.Text);
+            ResultTDEV.Text = TDEV(int.Parse(Size.Text), actualEffort).ToString();
+
         }
 
         private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
