@@ -280,7 +280,11 @@ namespace MetricsProject
             }
 
         }
-  
+
+        private void metroGrid1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
     public class Ratings
