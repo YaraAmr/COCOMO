@@ -141,7 +141,7 @@ namespace MetricsProject
                 {
                     c = 3.0;
                     d = 1.12;
-                    return TDEV = c * Math.Pow(Ei, c);
+                    return TDEV = c * Math.Pow(Ei, d);
                 }
                 else
                 {
