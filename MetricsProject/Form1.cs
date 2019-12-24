@@ -59,6 +59,7 @@ namespace MetricsProject
         {
 
         }
+        //calculate Effort
         public double Effort(int Size_of_project)
         {
             double a, b, Effort;
@@ -113,7 +114,7 @@ namespace MetricsProject
 
             return 0;
         }
-
+        //calculate devolpment time
         public double TDEV(int Size_of_project, double Ei)
         {
             double c, d, TDEV;
@@ -201,7 +202,7 @@ namespace MetricsProject
             ResultTDEV.Text = TDEV(int.Parse(Size.Text), actualEffort).ToString();
 
         }
-
+        //assign EAFValues
         private void metroComboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //MessageBox.Show(metroComboBox1.Text.ToString());
@@ -215,7 +216,7 @@ namespace MetricsProject
             ExtraHighRadioButton.Text = EAFValues[selectedValue].ExtraHigh.ToString();
 
         }
-
+        //remove EAFValues selected from list
         private void metroButton1_Click(object sender, EventArgs e)
         {
 
