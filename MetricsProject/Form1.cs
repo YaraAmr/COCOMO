@@ -105,7 +105,7 @@ namespace MetricsProject
                 }
                 else //Intermediate/Detailed Embedded
                 {
-                    a = 3.6;
+                    a = 2.8;
                     b = 1.20;
                     return Effort = a * Math.Pow(Size_of_project, b);
                 }
@@ -123,14 +123,14 @@ namespace MetricsProject
                 if (comboBox1.SelectedIndex == 0)
                 {
 
-                    c = 2.4;
-                    d = 1.05;
+                    c = 2.5;
+                    d = 0.38;
                     return TDEV = c * Math.Pow(Ei, d);
                 }
                 else
                 {
-                    c = 3.2;
-                    d = 1.05;
+                    c = 2.5;
+                    d = 0.38;
                     return TDEV = c * Math.Pow(Ei, d);
                 }
             }
@@ -139,14 +139,14 @@ namespace MetricsProject
             {
                 if (comboBox1.SelectedIndex == 0)
                 {
-                    c = 3.0;
-                    d = 1.12;
-                    return TDEV = c * Math.Pow(Ei, c);
+                    c = 2.5;
+                    d = 0.35;
+                    return TDEV = c * Math.Pow(Ei, d);
                 }
                 else
                 {
-                    c = 3.0;
-                    d = 1.12;
+                    c = 2.5;
+                    d = 0.35;
                     return TDEV = c * Math.Pow(Ei, d);
                 }
             }
@@ -155,14 +155,14 @@ namespace MetricsProject
             {
                 if (comboBox1.SelectedIndex == 0)
                 {
-                    c = 3.6;
-                    d = 1.20;
+                    c = 2.5;
+                    d = 0.32;
                     return TDEV = c * Math.Pow(Ei, d);
                 }
                 else
                 {
-                    c = 3.6;
-                    d = 1.20;
+                    c = 2.5;
+                    d = 0.32;
                     return TDEV = c * Math.Pow(Ei, d);
                 }
             }
